@@ -55,6 +55,8 @@ logo-title-wrapper {
     border-top: 1px solid rgba(0,0,0,0.1); /* Разделитель */
     padding: 10px 15px;
     gap: 10px; /* Расстояние между ссылками */
+    align-self: flex-start; /* ← ВОТ ЭТА СТРОКА ПРИЖИМАЕТ МЕНЮ К ВЕРХУ */
+    padding-top: 0; /* Убираем лишний отступ сверху */
 }
 
 .site-nav a {
@@ -220,6 +222,7 @@ input[type="submit"]:hover {
         border-top: none;
         padding: 0;
         gap: 0;
+        align-self: flex-start; /* ТОЖЕ ПРИЖИМАЕМ К ВЕРХУ */
     }
 
     .site-nav a {
