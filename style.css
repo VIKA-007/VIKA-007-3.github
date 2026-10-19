@@ -13,26 +13,22 @@ body {
 .site-header {
     width: 100%;
     background-color: #9477be;
-    padding: 15px 0;
+    padding: 0; /* Убрали отступы, чтобы ссылки прилипли к верху */
 }
 
 .header-inner {
     width: 100%;
-    padding: 0 15px; /* Отступы по бокам для мобильных */
+    padding: 15px;
     display: flex;
-    flex-direction: column; /* Лого и название в столбик */
-    align-items: center; /* По центру */
+    flex-direction: column; /* На мобилке — в столбик */
     gap: 15px;
 }
 
-logo-title-wrapper {
+.logo-title-wrapper {
     display: flex;
     align-items: center;
     gap: 15px;
-    width: 100%;
-    justify-content: center; /* Лого и название по центру мобильного экрана */
 }
-
 
 .logo img {
     width: 80px;
@@ -44,6 +40,20 @@ logo-title-wrapper {
 .site-title {
     font-size: 22px;
     font-weight: bold;
+}
+
+/* Меню на мобилке */
+.site-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.site-nav a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
 }
 
 /* ===== 2. МЕНЮ (на мобильных — вертикальный список) ===== */
@@ -197,60 +207,46 @@ input[type="submit"]:hover {
    ================================================================= */
 @media screen and (min-width: 768px) {
     
-    /* Шапка: возвращаем в строку и центрируем */
-    .header-inner {
-        flex-direction: row; /* В строку */
+   .header-inner {
+        flex-direction: row; /* В строку на ПК */
         justify-content: space-between; /* Лого слева, меню справа */
-        max-width: 960px; /* Ограничиваем ширину */
-        margin: 0 auto; /* Центрируем */
-        padding: 0; /* Убираем боковые отступы */
+        align-items: stretch; /* Растягиваем по высоте */
+        max-width: 100%; /* Убираем сжатие в 960px, растягиваем на всю ширину */
+        margin: 0;
+        padding: 0; /* Убираем отступы у контейнера */
     }
-
 
     .logo-title-wrapper {
-            width: auto;
-            justify-content: flex-start;
+        padding: 15px 30px; /* Отступы для левой части */
     }
 
-    
-
-    /* Меню: возвращаем в строку */
     .site-nav {
         flex-direction: row;
         width: auto;
-        background-color: transparent;
-        border-top: none;
-        padding: 0;
         gap: 0;
-        align-self: flex-start; /* ТОЖЕ ПРИЖИМАЕМ К ВЕРХУ */
+        align-items: flex-start; /* Прижимаем меню к ВЕРХУ */
     }
 
     .site-nav a {
-        margin-left: 20px;
-        padding: 0;
+        padding: 15px 20px; /* Отступы внутри ссылок */
+        border-left: 1px solid rgba(0,0,0,0.1); /* Разделители */
+        line-height: 1; /* Убираем лишнюю высоту строки */
     }
 
-    /* Контент: выстраиваем в строку и центрируем */
+    .site-nav a:first-child {
+        border-left: none;
+    }
+
+    /* Контент и подвал оставляем по центру (960px) */
     .content {
         max-width: 960px;
         margin: 20px auto;
-        padding: 0;
+        padding: 0 15px;
     }
 
-    /* Возвращаем блокам нормальный порядок (Список -> Таблица -> Форма) */
-    #section-links { order: 1; }
-    #section-table { order: 2; }
-    #section-form { order: 3; }
-
-    /* Внутренние отступы для блоков */
-    .block {
-        margin-bottom: 20px;
-    }
-
-    /* Подвал: центрируем контент */
     .footer-inner {
         max-width: 960px;
         margin: 0 auto;
-        padding: 0;
+        padding: 0 15px;
     }
 }
