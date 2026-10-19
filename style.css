@@ -257,9 +257,17 @@ img {
     }
 
      /* Возвращаем таблице нормальный вид на компьютере */
-    .schedule-table {
-        display: table; /* Возвращаем табличное отображение */
-        white-space: normal; /* Разрешаем перенос текста внутри ячеек */
-        overflow-x: visible; /* Убираем мобильную прокрутку */
+     .schedule-table {
+        display: table !important; 
+        width: 100% !important;
+        table-layout: auto !important;
+        overflow: visible !important;
+        white-space: normal !important;
+    }
+    
+    .schedule-table th,
+    .schedule-table td {
+        display: table-cell !important; /* Принудительно возвращаем ячейки */
+        white-space: normal !important;
     }
 }
