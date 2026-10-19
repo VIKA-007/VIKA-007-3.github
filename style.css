@@ -1,0 +1,236 @@
+/* ===== БАЗОВЫЕ (МОБИЛЬНЫЕ) СТИЛИ ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ede4f7;
+}
+
+/* ===== 1. ШАПКА (на всю ширину) ===== */
+.site-header {
+    width: 100%;
+    background-color: #9477be;
+    padding: 15px 0;
+}
+
+.header-inner {
+    width: 100%;
+    padding: 0 15px; /* Отступы по бокам для мобильных */
+    display: flex;
+    flex-direction: column; /* Лого и название в столбик */
+    align-items: center; /* По центру */
+    gap: 15px;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.site-title {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ===== 2. МЕНЮ (на мобильных — вертикальный список) ===== */
+.site-nav {
+    display: flex;
+    flex-direction: column; /* Ссылки в столбик */
+    width: 100%;
+    background-color: #9477be; /* Фон меню */
+    border-top: 1px solid rgba(0,0,0,0.1); /* Разделитель */
+    padding: 10px 15px;
+    gap: 10px; /* Расстояние между ссылками */
+}
+
+.site-nav a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 0; /* Немного воздуха */
+}
+
+.site-nav a:hover {
+    text-decoration: underline;
+}
+
+/* ===== 3. КОНТЕНТ И ПОРЯДОК БЛОКОВ (order) ===== */
+/* По умолчанию на мобильных контент в столбик */
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    gap: 15px;
+}
+
+/* Таблица визуально выше списка ссылок (по заданию) */
+#section-table {
+    order: 1; /* Таблица первая */
+}
+
+#section-links {
+    order: 2; /* Список второй */
+}
+
+#section-form {
+    order: 3; /* Форма третья */
+}
+
+/* Стили самих блоков */
+.block {
+    background-color: #c9b6e4;
+    padding: 20px;
+    width: 100%; /* На всю ширину экрана */
+}
+
+.block h2 {
+    margin-top: 0;
+}
+
+/* ===== 4. ОСТАЛЬНЫЕ СТИЛИ (без изменений) ===== */
+.links-list li {
+    margin-bottom: 8px;
+}
+
+/* Таблица */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #333;
+    padding: 6px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+.schedule-table th {
+    background-color: #a78bca;
+    color: #fff;
+}
+
+.schedule-table tbody tr:nth-child(odd) { background-color: #ffffff; }
+.schedule-table tbody tr:nth-child(even) { background-color: #ede4f7; }
+
+.schedule-table .split { padding: 0; }
+.schedule-table .split .top,
+.schedule-table .split .bottom {
+    padding: 6px 4px;
+    min-height: 20px;
+}
+.schedule-table .split .bottom { border-top: 1px solid #333; }
+
+/* Форма */
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px 10px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+input[type="submit"] {
+    background-color: #4a86c8;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #3a6ea8;
+}
+
+/* ===== 5. ПОДВАЛ ===== */
+.site-footer {
+    width: 100%;
+    background-color: #9477be;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.footer-inner {
+    width: 100%;
+    padding: 0 15px;
+    color: #fff;
+}
+
+
+/* =================================================================
+   MEDIA QUERY (Для планшетов и десктопов)
+   Всё, что ниже этого комментария, применяется ТОЛЬКО на экранах шире 768px
+   ================================================================= */
+@media screen and (min-width: 768px) {
+    
+    /* Шапка: возвращаем в строку и центрируем */
+    .header-inner {
+        flex-direction: row; /* В строку */
+        justify-content: space-between; /* Лого слева, меню справа */
+        max-width: 960px; /* Ограничиваем ширину */
+        margin: 0 auto; /* Центрируем */
+        padding: 0; /* Убираем боковые отступы */
+    }
+
+    /* Меню: возвращаем в строку */
+    .site-nav {
+        flex-direction: row;
+        width: auto;
+        background-color: transparent;
+        border-top: none;
+        padding: 0;
+        gap: 0;
+    }
+
+    .site-nav a {
+        margin-left: 20px;
+        padding: 0;
+    }
+
+    /* Контент: выстраиваем в строку и центрируем */
+    .content {
+        max-width: 960px;
+        margin: 20px auto;
+        padding: 0;
+    }
+
+    /* Возвращаем блокам нормальный порядок (Список -> Таблица -> Форма) */
+    #section-links { order: 1; }
+    #section-table { order: 2; }
+    #section-form { order: 3; }
+
+    /* Внутренние отступы для блоков */
+    .block {
+        margin-bottom: 20px;
+    }
+
+    /* Подвал: центрируем контент */
+    .footer-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
