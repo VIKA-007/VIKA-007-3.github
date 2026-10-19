@@ -25,6 +25,15 @@ body {
     gap: 15px;
 }
 
+logo-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    justify-content: center; /* Лого и название по центру мобильного экрана */
+}
+
+
 .logo img {
     width: 80px;
     height: 80px;
@@ -194,6 +203,14 @@ input[type="submit"]:hover {
         margin: 0 auto; /* Центрируем */
         padding: 0; /* Убираем боковые отступы */
     }
+
+
+    .logo-title-wrapper {
+            width: auto;
+            justify-content: flex-start;
+    }
+
+    
 
     /* Меню: возвращаем в строку */
     .site-nav {
