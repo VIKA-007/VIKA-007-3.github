@@ -108,6 +108,7 @@ body {
     background-color: #c9b6e4;
     padding: 20px;
     width: 100%; /* На всю ширину экрана */
+    overflow: hidden;
 }
 
 .block h2 {
@@ -124,8 +125,10 @@ body {
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
+    display: block; /* На мобильных делаем блочной */
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    white-space: nowrap; /* Запрещаем перенос текста внутри ячеек (чтобы читалось) */
 }
-
 .schedule-table th,
 .schedule-table td {
     border: 1px solid #333;
@@ -199,7 +202,10 @@ input[type="submit"]:hover {
     padding: 0 15px;
     color: #fff;
 }
-
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 /* =================================================================
    MEDIA QUERY (Для планшетов и десктопов)
